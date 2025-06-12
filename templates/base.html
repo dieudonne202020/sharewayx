@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Site{% endblock title %}</title> {# Added a title block for better practice #}
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}
+
+    {# This section displays a welcome message and logout link if the user is logged in #}
+    {% if user.is_authenticated %} {# Corrected: Use user.is_authenticated for authentication check #}
+     <p>Vous êtes connecté en tant que {{ request.user }}.
+        <a href="{% url 'logout' %}">Se déconnecter</a> {# Corrected: Link text should be 'Se déconnecter' #}
+     </p>
+    {% endif %}
+</body>
+</html>
